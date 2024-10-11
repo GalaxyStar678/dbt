@@ -35,6 +35,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
+sources:
+  name: pos
+  database: TB_101
+  schema: RAW_POS
+  tables: 
+    - name: COUNTRY
+
 models:
   my_new_project:
     # Applies to all files under models/example/
