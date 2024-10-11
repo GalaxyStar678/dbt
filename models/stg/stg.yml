@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: staging
+    columns:
+      - name: franchise_id
+        description: "ID of the franchise"
+        data_tests:
+          - not_null

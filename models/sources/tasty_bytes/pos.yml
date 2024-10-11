@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: pos
+    database: TB_101
+    schema: RAW_POS
+    tables: 
+      - name: country
+      - name: franchise
+      - name: location
+      - name: menu
+      - name: order_detail
+      - name: order_header
+      - name: truck
+
+  - name: customer
+    database: TB_101
+    schema: RAW_CUSTOMER
+    tables:
+      - name: customer_royalty
