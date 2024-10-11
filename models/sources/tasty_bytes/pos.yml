@@ -5,16 +5,16 @@ sources:
     database: TB_101
     schema: RAW_POS
     tables: 
-      - name: COUNTRY
+      - name: country
       - name: franchise
-      - name: LOCATION
-      - name: MENU
-      - name: ORDER_DETAIL
-      - name: ORDER_HEADER
-      - name: TRUCK
+      - name: location
+      - name: menu
+      - name: order_detail
+      - name: order_header
+      - name: truck
 
   - name: customer
     database: TB_101
     schema: RAW_CUSTOMER
     tables:
-      - name: CUSTOMER_LOYALTY
+      - name: customer_royalty
