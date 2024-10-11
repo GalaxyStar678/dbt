@@ -1,7 +1,8 @@
 WITH SRC AS (
     SELECT *
-    FROM {{SOURCE('pos','franchise')}}
+    FROM {{source ('pos','FRANCHISE')}}
 ),
+
 TRANSFORMED_FRANCHISE AS (
     SELECT
         FRANCHISE_ID,
@@ -12,7 +13,7 @@ TRANSFORMED_FRANCHISE AS (
         LOWER(E_MAIL) AS EMAIL,
         PHONE_NUMBER,
     FROM SCR
-),
+)
 
 SELECT *
 FROM TRANSFORMED_FRANCHISE
