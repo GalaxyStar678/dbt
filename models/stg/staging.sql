@@ -1,6 +1,6 @@
 WITH SRC AS (
     SELECT *
-    FROM {{source ('pos','FRANCHISE')}}
+    FROM {{source ('pos','franchise')}}
 ),
 
 TRANSFORMED_FRANCHISE AS (

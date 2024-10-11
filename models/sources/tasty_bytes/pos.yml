@@ -6,14 +6,15 @@ sources:
     schema: RAW_POS
     tables: 
       - name: COUNTRY
-      - name: FRANCHISE
+      - name: franchise
       - name: LOCATION
       - name: MENU
       - name: ORDER_DETAIL
       - name: ORDER_HEADER
       - name: TRUCK
-  - name: pos
+
+  - name: customer
     database: TB_101
-    schema: RAW_POS
+    schema: RAW_CUSTOMER
     tables:
       - name: CUSTOMER_LOYALTY
