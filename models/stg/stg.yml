@@ -5,5 +5,3 @@ models:
     columns:
       - name: franchise_id
         description: "ID of the franchise"
-        data_tests:
-          - not_null
