@@ -12,4 +12,11 @@ models:
         data_tests:
           - unique
           - not_null
+
+  - name: l1_truck
+    columns:
+      - name: truck_id
+        data_tests:
+          - unique
+          - not_null
               
