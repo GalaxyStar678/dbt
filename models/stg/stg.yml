@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: staging
+  - name: stage_franchise
     columns:
       - name: franchise_id
         description: "ID of the franchise"
