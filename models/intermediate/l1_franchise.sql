@@ -1,6 +1,6 @@
 WITH staging AS (
     SELECT *
-    FROM {{ ref('staging') }}
+    FROM {{ ref('stage_franchise') }}
 ),
 
 DEDUPED AS (
