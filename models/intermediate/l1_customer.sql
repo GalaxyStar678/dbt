@@ -3,12 +3,20 @@ WITH staging AS (
     FROM {{ ref('stage_customer') }}
 ),
 
-DEDUPED AS (
-    SELECT* 
+CUSTOMERS AS (
+    SELECT
+        CUSTOMER_ID,
+        FIRST_NAME,
+        LAST_NAME,
+        FIRST_NAME || ' ' || LAST_NAME AS FULL_NAME,
+        CUSTOMER_COUNTRY,
+        CUSTOMER_CITY,
+        GENDER,
+        REPLACE(CHILDREN_COUNT, 'Undisclosed', 0) AS CHILDREN_COUNT,
+        EMAIL,
+        PHONE_NUMBER,
     FROM staging
-    QUALIFY ROW_NUMBER() 
-    OVER (PARTITION BY CUSTOMER_ID ORDER BY CITY) = 1
 )
 
 SELECT *
-FROM DEDUPED
+FROM CUSTOMERS
