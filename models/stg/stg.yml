@@ -6,9 +6,9 @@ models:
       - name: franchise_id
         description: "ID of the franchise"
 
-  - name: l1_franchise
+  - name: l1_customer
     columns:
-      - name: franchise_id
+      - name: customer_id
         data_tests:
           - unique
           - not_null
@@ -16,6 +16,13 @@ models:
   - name: l1_truck
     columns:
       - name: truck_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: l1_product
+    columns:
+      - name: product_id
         data_tests:
           - unique
           - not_null
