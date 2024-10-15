@@ -3,15 +3,21 @@ WITH staging AS (
     FROM {{ ref('stage_truck') }}
 ),
 
+DEDUPED AS (
+    SELECT* 
+    FROM staging
+    QUALIFY ROW_NUMBER() 
+    OVER (PARTITION BY TRUCK_ID ORDER BY ORDER_ID) = 1
+),
 
 EDIT_FORD AS (
     SELECT 
         TRUCK_ID,
-        REPLACE(TRUCK_BRAND_NAME, 'Ford_', 'Ford') AS TRUCK_BRAND_NAME,
+        TRUCK_BRAND_NAME,
         REPLACE(CAR_BRAND, 'Ford_', 'Ford') AS CAR_BRAND,
         MODEL,
         YEAR,
-    FROM staging
+    FROM DEDUPED
 )
 
 SELECT *
