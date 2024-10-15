@@ -17,4 +17,4 @@ sources:
     database: TB_101
     schema: RAW_CUSTOMER
     tables:
-      - name: customer_royalty
+      - name: customer_loyalty
