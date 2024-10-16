@@ -1,19 +1,15 @@
 version: 2
 
 models:
-  - name: stage_franchise
-    columns:
-      - name: franchise_id
-        description: "ID of the franchise"
 
-  - name: l1_customer
+  - name: l2_customer
     columns:
       - name: customer_id
         data_tests:
           - unique
           - not_null
 
-  - name: l1_truck
+  - name: l2_truck
     columns:
       - name: truck_id
         data_tests:
