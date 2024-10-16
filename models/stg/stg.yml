@@ -1,30 +1,30 @@
 version: 2
 
 models:
-  - name: l1_customer
+  - name: l2_DIM_CUSTOMER
     columns:
       - name: customer_id
         data_tests:
           - unique
           - not_null
 
-  - name: l1_product
+  - name: l2_DIM_PRODUCT
     columns:
       - name: product_id
         data_tests:
           - unique
           - not_null
 
-  - name: l1_order_header
+  - name: l2_FCT_ORDER_DETAIL
     columns:
-      - name: order_id
+      - name: order_detail_id
         data_tests:
           - unique
           - not_null
 
-  - name: l1_order_detail
+  - name: l2_DIM_TRUCK
     columns:
-      - name: order_detail_id
+      - name: truck_id
         data_tests:
           - unique
           - not_null
