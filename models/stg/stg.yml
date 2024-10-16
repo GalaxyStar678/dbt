@@ -21,6 +21,16 @@ models:
         data_tests:
           - unique
           - not_null
+          - relationships:
+              field: truck_id
+              to: ref('l2_DIM_TRUCK')
+          - relationships:
+              field: product_id
+              to: ref('l2_DIM_PRODUCT')
+          - relationships:
+              field: customer_id
+              to: ref('l2_DIM_CUSTOMER')
+
 
   - name: l2_DIM_TRUCK
     columns:
@@ -28,4 +38,3 @@ models:
         data_tests:
           - unique
           - not_null
-              
