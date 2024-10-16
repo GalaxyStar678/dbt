@@ -11,7 +11,6 @@ TRANSFORM_DETAIL AS (
         QUANTITY,
         UNIT_PRICE,
         QUANTITY * UNIT_PRICE AS TOTAL_SALE,
-        CUSTOMER_ID,
     FROM l1_detail
 )
 

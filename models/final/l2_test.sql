@@ -8,12 +8,17 @@ S2 AS (
     FROM {{ ref('l2_FCT_ORDER_DETAIL') }}
 ),
 
+S3 AS (
+    SELECT *
+    FROM {{ ref('l1_order_header') }}
+),
+
 TEST_CUSTOMER AS (
     SELECT *
     FROM 
         S2
-        LEFT JOIN S1
-        ON S2.CUSTOMER_ID = S1.CUSTOMER_ID
+        LEFT JOIN S3
+        ON S2.ORDER_ID = S3.ORDER_ID
 )
 
 SELECT *
