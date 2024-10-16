@@ -1,6 +1,6 @@
 WITH l1_detail AS (
     SELECT *
-    FROM {{ ref('l1_order_detail') }}
+    FROM {{ ref('l2_test') }}
 ),
 
 TRANSFORM_DETAIL AS (
