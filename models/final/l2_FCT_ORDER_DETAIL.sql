@@ -7,7 +7,7 @@ TRANSFORM_DETAIL AS (
     SELECT
         ORDER_DETAIL_ID,
         ORDER_ID,
-        PRODUCT_ID,
+        PRODUCT_ID ,
         QUANTITY,
         UNIT_PRICE,
         QUANTITY * UNIT_PRICE AS TOTAL_SALE,
