@@ -1,6 +1,32 @@
 WITH l1_detail AS (
     SELECT *
-    FROM {{ ref('l2_test') }}
+    FROM {{ ref('l1_order_detail') }}
+),
+
+l1_order AS (
+    SELECT *
+    FROM {{ ref('l1_order_header') }}
+),
+
+ELIMINATE_NULLS AS (
+    SELECT 
+        l1_detail.ORDER_DETAIL_ID,
+        l1_detail.ORDER_ID,
+        l1_detail.PRODUCT_ID,
+        l1_detail.QUANTITY,
+        l1_detail.UNIT_PRICE,
+        l1_detail.TOTAL_PRICE,
+        l1_detail.DISCOUNT_ID,
+        l1_detail.ORDER_PRODUC_DISC_AMOUNT,
+        l1_detail.LINE_NUMBER,
+        l1_order.CUSTOMER_ID,
+        l1_order.TRUCK_ID,
+    FROM 
+        l1_detail
+        LEFT JOIN l1_order
+        ON l1_detail.ORDER_ID = l1_order.ORDER_ID
+
+    WHERE (PRODUCT_ID IS NOT NULL) AND (TRUCK_ID IS NOT NULL) AND (CUSTOMER_ID IS NOT NULL)
 ),
 
 TRANSFORM_DETAIL AS (
@@ -11,7 +37,9 @@ TRANSFORM_DETAIL AS (
         QUANTITY,
         UNIT_PRICE,
         QUANTITY * UNIT_PRICE AS TOTAL_SALE,
-    FROM l1_detail
+        TRUCK_ID,
+        CUSTOMER_ID,
+    FROM ELIMINATE_NULLS
 )
 
 SELECT *

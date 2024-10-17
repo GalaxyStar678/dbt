@@ -3,38 +3,38 @@ version: 2
 models:
   - name: l2_DIM_CUSTOMER
     columns:
-      - name: customer_id
+      - name: CUSTOMER_ID
         data_tests:
           - unique
           - not_null
+          - relationships:
+              to: ref('l2_FCT_ORDER_DETAIL')
+              field: CUSTOMER_ID
 
   - name: l2_DIM_PRODUCT
     columns:
-      - name: product_id
+      - name: PRODUCT_ID
         data_tests:
           - unique
           - not_null
+          - relationships:
+              to: ref('l2_FCT_ORDER_DETAIL')
+              field: PRODUCT_ID
 
   - name: l2_FCT_ORDER_DETAIL
     columns:
-      - name: order_detail_id
+      - name: ORDER_DETAIL_ID
         data_tests:
           - unique
           - not_null
-          - relationships:
-              field: truck_id
-              to: ref('l2_DIM_TRUCK')
-          - relationships:
-              field: product_id
-              to: ref('l2_DIM_PRODUCT')
-          - relationships:
-              field: customer_id
-              to: ref('l2_DIM_CUSTOMER')
 
 
   - name: l2_DIM_TRUCK
     columns:
-      - name: truck_id
+      - name: TRUCK_ID
         data_tests:
           - unique
           - not_null
+          - relationships:
+              to: ref('l2_FCT_ORDER_DETAIL')
+              field: TRUCK_ID
