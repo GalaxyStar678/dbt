@@ -20,6 +20,7 @@ ELIMINATE_NULLS AS (
         l1_detail.ORDER_PRODUC_DISC_AMOUNT,
         l1_detail.LINE_NUMBER,
         l1_order.CUSTOMER_ID,
+        l1_order.TRUCK_ID,
     FROM 
         l1_detail
         LEFT JOIN l1_order
@@ -36,6 +37,8 @@ TRANSFORM_DETAIL AS (
         QUANTITY,
         UNIT_PRICE,
         QUANTITY * UNIT_PRICE AS TOTAL_SALE,
+        TRUCK_ID,
+        CUSTOMER_ID,
     FROM ELIMINATE_NULLS
 )
 
